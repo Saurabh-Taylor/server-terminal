@@ -10,9 +10,11 @@ dotenv.config();
 const app = express();
 app.use(cors());
 const server = createServer(app);
+console.log("", process.env.FRONTEND_URL);
+
 const io = new Server(server, {
   cors: {
-    origin: String(process.env.FRONTEND_URL),
+    origin:[String(process.env.FRONTEND_URL) , "http://localhost:5173"],
     methods: ["GET", "POST"]
   }
 });
